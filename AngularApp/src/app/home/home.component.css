@@ -1,0 +1,64 @@
+.page{
+	margin-top: 60px;
+	margin-left: 100px;
+}
+h2{
+    color: blue;
+    font-style: oblique;
+    
+    
+}
+hr{
+    color: blue;
+}
+
+h3{
+    color: blue;
+    font-style: oblique;
+    margin-left: 30px;
+}
+img{
+    height: 14rem;
+    width: 20rem;
+    align-self: center;
+}
+content{
+    /* padding: 4rem 1rem; */
+    position: relative;
+    align-self:stretch;
+}
+ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 2px;
+}
+ul li a{
+    height: 20rem;
+    width: 20rem;
+    border: 1px solid lightgray;
+    
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color:black;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+li a:hover{
+    /* opacity: 0.4; */
+    cursor: pointer;
+    transform: scale(1.15);
+
+}
+.name{
+    text-align: center;
+    font-size: 18px;
+    color: black;
+}
+li{
+    padding: 3px;
+}

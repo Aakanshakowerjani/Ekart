@@ -1,0 +1,6 @@
+{
+    "vscode.tsc.compiler.alertTSConfigChanges": "never",
+    "git.enabled": false,
+    "gitlens.plusFeatures.enabled": false,
+    "gitlens.currentLine.enabled": false
+}

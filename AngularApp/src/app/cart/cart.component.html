@@ -1,0 +1,79 @@
+<app-header></app-header>
+
+<app-not-found [visible]="!cart || cart.items.length<=0"
+notFoundMessage="Cart Page Is Empty!"
+resetLinkText="Go to Homepage"></app-not-found>
+<div *ngIf="cart && cart.items.length>0">
+    <div  class="container">
+    <h3 class="new-h3-tag">Shopping Cart</h3>
+    <div class="container">
+    <ul>
+        <li *ngFor="let cartItem of cart.items">
+            <div>
+                <img [src]="cartItem.product.imageUrl" alt="cartItem.product.displayName">
+            </div>
+            <div>
+                <a routerLink="/home/{{cartItem.product.displayName}}/details/">
+                    {{cartItem.product.displayName}}
+                </a>
+            </div>
+            <div>
+                <select #quantitySelect (change)="changeQuantity(cartItem,quantitySelect.value)">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+    
+            </div>
+            <div>
+                {{ getProductPrice(cartItem) |currency:"INR":"symbol" }}
+            </div>
+            <div>
+                <button class="remove-button" (click)="removeFromCart(cartItem)">Remove</button>
+            </div>
+        </li>
+    </ul>
+    <div class="checkout">
+        <div>
+            <div class="products-count">{{cart.items.length}}</div>
+            <div class="total-price">{{ getTotalPrice(cart.items) | currency:"INR":"symbol"}}</div>
+        </div>
+    </div>
+</div>
+</div>
+<button style="margin-left:1000px;margin-top:50px; margin-bottom: 2px;" (click)="checkout()" type="button" class="btn btn-success">checkout</button>
+
+
+<div class="container3" *ngIf="checked">
+    <!-- Address -->
+    
+    <!-- Payment -->
+    <div class="new-changes">
+        <h3 >Select Payment Method </h3>
+        
+        <div>
+            <input type="radio" id="CASH_ON_DELIVERY" name="payment" value="CASH_ON_DELIVERY"
+            (change)="onItemChange($event)"  checked>
+            <label for="CASH_ON_DELIVERY">Cash On Delivery</label>
+        </div>
+        
+
+        <div>
+            <input type="radio" id="CREDIT_CARD" name="payment" value="CREDIT_CARD"
+            (change)="onItemChange($event)">
+            <label for="CREDIT_CARD">Credit Card</label>
+        </div>
+
+        <div>
+            <input type="radio" id="DEBIT_CARD" name="payment" value="DEBIT_CARD"
+            (change)="onItemChange($event)" >
+            <label for="DEBIT_CARD">Debit Card</label>
+        </div>
+    </div>
+    <button style="margin-left:1000px;margin-top:50px;" type="button" (click)="placeOrder()" class="btn btn-success">Place Order</button>
+    </div>
+    
+</div>
+

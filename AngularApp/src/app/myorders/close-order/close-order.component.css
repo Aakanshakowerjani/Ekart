@@ -1,0 +1,60 @@
+.btn-group button {
+  background-color: #FFFFFF7F; /* Transparent background */
+  color: blue; /* Blue text */
+  padding: 10px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+  border: none;
+  margin-top: 30px;
+  border-bottom: 1px solid gray;
+}
+
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #d3d3d3;
+  float: left; /* Float the buttons side by side */
+}
+
+/* Next */
+#container button {
+  background-color: red; /* Red background */
+  color: white; /* White text */
+  padding: 8px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+  border: 0;
+  margin-left: 30px;
+  display:block;
+}
+
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 35%;
+  margin-left: 30px;
+}
+
+#customers td, #customers th {
+  border: 0;
+  padding: 8px;
+  margin-left: 30px;
+}
+
+#customers tr:nth-child(even){
+  background-color: #f2f2f2; 
+}
+
+#customers tr:hover {
+  background-color: #ddd;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 1px;
+  text-align: left;
+  background-color: white;
+  color: black;
+  border-bottom: 0.5px solid gray;
+}
+

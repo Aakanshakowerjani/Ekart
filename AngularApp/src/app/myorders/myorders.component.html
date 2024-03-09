@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <app-header></app-header>
+    <!-- <link rel="stylesheet" href="style.css" > -->
+
+<body>
+  <app-not-found [visible]="!guest"
+notFoundMessage="Login First!"
+resetLinkText="Login"
+resetLinkRoute="/login"></app-not-found>
+  <div *ngIf="guest">
+    <div class="btn-group" style= "margin-left: 30px">
+        <button (click)="openOrder()">Open Order</button>
+        <button (click)="closeOrder()">Closed Orders</button>
+        <button (click)="cancelOrder()">Cancelled Orders</button>
+        <button (click)="returnOrder()">Returned Orders</button>
+        <hr size="1" color="grey">
+    </div><br>
+    <div style="margin-top: 10px">
+        <table id="customers">
+            <tr>
+              <th>Order Id</th>
+              <th>Order Date</th>
+              <th>Order <br>status</th>
+              <th>Card <br>Type</th>
+              <th>Delivery Date</th>
+              <th></th>
+            </tr>
+            <tr *ngFor="let order of orders">
+              <td>{{ order.orderId }}</td>
+              <td>{{ order.dateOfOrder }}</td>
+              <td>{{ order.orderStatus }}</td>
+              <td>{{ order.paymentThrough }}</td>
+              <td>{{ order.dateOfDelivery }}</td>
+              <td id="container"><button>Cancel</button></td>
+            </tr>
+        </table>
+      </div>
+    </div>
+</body>
+</html>
+
+

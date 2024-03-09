@@ -1,0 +1,119 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<app-header></app-header>
+<div class="container">
+    <div class="image">
+    <img [src]="product.imageUrl" [alt]="product.displayName">
+    </div>
+    <div class="text">
+    <div class = "details">
+        <div class="header">
+            <span class="name">
+                {{ product.displayName }}
+            </span>
+            
+        </div>
+        <div class="rating">
+            <star-rating
+            [value] = " product.avgRating "
+            [totalstars] = "5"
+            checkedcolor = "orange"
+            uncheckedcolor = "black"
+            size = "30px"
+            [readonly] = "true">
+        </star-rating>
+        </div>
+        <span layout="row"><hr flex/></span>
+        <div class="shortDesc">
+            {{ product.shortDesc }}
+         </div>
+        <div class="desc">
+            
+        <div class="price">
+            <span class="mrp">M.R.P : <s>{{ product.price|currency:"INR":"symbol"}}</s></span><br>
+            <span>Price: {{ product.offerPrice |currency:"INR":"symbol"}}</span> <br>
+            <span class="u-save">You save: {{ product.discount }}%</span>
+        </div>
+        
+        </div>
+        <div class="in-stock">
+            In Stock
+        </div>
+        <br>
+        <div class="quantity">
+            <label for="quant" class="quant" >Quantity: &nbsp;</label>
+            <select  name="quant" id="quant">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+        <br>
+        <div class="det">
+            <u>About Product</u><br>
+            
+                {{ product.desc }}
+        </div>
+        <br>
+        
+        <br>
+        
+        <button class="button" (click)="addToCart()" > Add To Cart</button>
+        <br>
+        <button class="button" *ngIf = "guest" (click) = "addToWishlist()" > Add To Wishlist</button>
+      
+
+    </div>
+</div>
+
+</div>
+
+
+<div class="foot" *ngIf = "guest">
+<div class="review">
+    Customer Review
+</div>
+<div class="rev-rating">
+    <star-rating
+    [value] = " product.avgRating "
+    [totalstars] = "5"
+    checkedcolor = "orange"
+    uncheckedcolor = "black"
+    size = "25px"
+    [readonly] = "true">
+</star-rating>
+<p>({{ product.avgRating }} out of 5 Stars)</p>
+</div>
+<span layout="row"><hr flex/></span>
+<div class="user-review" *ngFor= 'let review of product.review'>
+    <!-- <p>{{ review.rating }}</p> -->
+
+    <div class="rev-rating">
+        <star-rating
+        [value] = " review.rating "
+        [totalstars] = "5"
+        checkedcolor = "orange"
+        uncheckedcolor = "black"
+        size = "25px"
+        [readonly] = "true">
+    </star-rating>
+    ({{review.rating}}/ 5 )
+    by <b> {{ review.userName }}</b> <br> <br>
+    {{ review.reviewComments }}
+    <br>
+    <span layout="row"><hr flex/></span>
+    </div>
+
+</div>
+
+<textarea class="form-control" type = "text" rows="3" #txt [(ngModel)] = "reviewContent"></textarea>
+<div style="text-align:left">
+    <star-rating [value]=5 [totalstars]="5" checkedcolor="orange" uncheckedcolor="black" size="24px" [readonly]=false (rate)="onRate($event)"></star-rating>
+</div>
+<button class="button" (click) = "addReview('product.displayName',txt)" >Submit Feedback</button>
+</div>
+

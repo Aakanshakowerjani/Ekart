@@ -1,0 +1,62 @@
+<app-header></app-header>
+
+<div class="page">
+    <div *ngIf="!products || products.length<=0">
+        <app-not-found [visible]="!products || products.length<=0"></app-not-found>
+    </div>
+    <div *ngIf="products.length >0">
+    <h2>Today's Deal Products</h2>
+    <app-not-found [visible]="!products || products.length<=0"></app-not-found>
+    <ul>
+        <li *ngFor = 'let productimg of products;let i=index'>
+            <div *ngIf="i<5">
+            <a routerLink ="/home/{{ productimg.displayName}}/details">
+                <img src="{{ productimg.imageUrl }}" alt="">
+                <div class= " content">
+                    <div class="name">
+                        <!-- <hr> -->
+                        <br>
+                        {{ productimg.displayName }}
+                    </div>
+                </div>
+            </a>
+            </div>
+        </li>
+    </ul>
+    <h2>Other Products</h2>
+    <h3>Phones</h3>
+    <ul>
+        <li *ngFor = 'let productimg of products;let i=index'>
+            <div *ngIf="i<5">
+            <a routerLink ="/home/{{ productimg.displayName}}/details">
+                <img src="{{ productimg.imageUrl }}" alt="">
+                <div class= " content">
+                    <div class="name">
+                        <br>
+                        <!-- <hr> -->
+                        {{ productimg.displayName }}
+                    </div>
+                </div>
+            </a>
+            </div>
+        </li>
+    </ul>
+    <h3>Laptops</h3>
+    <ul>
+        <li *ngFor = 'let productimg of products; let i=index'>
+            <div *ngIf="i>=5">
+            <a routerLink ="/home/{{ productimg.displayName}}/details">
+                <img src="{{ productimg.imageUrl }}" alt="">
+                <div class= " content">
+                    <div class="name">
+                        <br>
+                        <!-- <br> -->
+                        {{ productimg.displayName }}
+                    </div>
+                </div>
+            </a>
+            </div>
+        </li>
+    </ul>
+    </div>
+</div>

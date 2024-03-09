@@ -1,0 +1,71 @@
+hr {
+    border-top: 1px solid rgb(185, 184, 184);
+}
+.wishlist{
+	margin-top: 60px;
+	margin-left: 100px;
+}
+h2{
+    color:rgb(87, 85, 85);
+    font-style: oblique;
+      
+}
+
+hr{
+    color: blue;
+}
+
+button{
+    margin-right: 1rem;
+    margin-left: 0.5rem;
+}
+h3{
+    color: blue;
+    font-style: oblique;
+    margin-left: 30px;
+}
+img{
+    height: 14rem;
+    width: 20rem;
+    align-self: center;
+}
+content{
+    /* padding: 4rem 1rem; */
+    position: relative;
+    align-self:stretch;
+}
+ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+}
+ul li a{
+    height: 20rem;
+    width: 20rem;
+    border: 1px solid lightgray;
+    margin: 0.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color:black;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+li a:hover{
+    /* opacity: 0.4; */
+    cursor: pointer;
+    transform: scale(1.15);
+
+}
+.name{
+    text-align: center;
+    font-size: 19px;
+    color: black;
+}
+li{
+    padding: 2px;
+}

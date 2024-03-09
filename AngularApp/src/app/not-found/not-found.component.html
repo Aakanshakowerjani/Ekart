@@ -1,0 +1,9 @@
+<!-- <app-header></app-header> -->
+
+
+<div *ngIf="visible">
+    {{notFoundMessage}}
+    <br><br>
+    <button style="background-color:red; color:white;" (click)="clicking()">{{resetLinkText}}</button>
+    <!-- <a routerLink="{{resetLinkRoute}}">{{resetLinkText}}</a> -->
+</div>

@@ -1,0 +1,38 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <app-header></app-header>
+<span style="background-color:LightGray"><h2 style="text-align:center; margin-top:6rem;">Sign in to Continue Shopping</h2></span>
+
+
+  <div class="imgcontainer">
+   
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" value={{Username}} #uname/>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" value={{Password}} #psw>
+        
+    <button type="submit" (click)="validate(uname.value,psw.value)">Sign in</button>
+    <br>
+    <!-- <h3 style="color:red;text-align:center;"*ngIf="clicked">{{message}}</h3> -->
+    <h3 style="text-align:center" [ngStyle]="{color:val===1?'green':'red'}" *ngIf="clicked">{{message}}</h3>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+    <br>
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+
+
+</body>
+</html>

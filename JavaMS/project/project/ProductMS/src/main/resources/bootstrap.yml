@@ -1,0 +1,16 @@
+server:
+  port: 8073
+  
+spring:
+  application:
+    name: ProductMS
+  cloud:
+    consul:
+      discovery:
+        hostname: localhost
+      config:
+        enabled: true
+        prefixes: config2
+        defaultContext: application
+        profileSeparator: '::'
+        format: YAML  

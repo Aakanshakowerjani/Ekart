@@ -1,0 +1,28 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+              allowedOrigins: "*"
+              allowedMethods: "*"
+              allowedHeaders: "*"
+      routes:
+        - id: CustomerCartMS
+          uri: lb://CustomerCartMS
+          predicates:
+            - Path=/Ekart/customercart-api/**
+        - id: CustomerMS
+          uri: lb://CustomerMS
+          predicates:
+            - Path=/Ekart/customer-api/**, /Ekart/customerorder-api/**
+        - id: ProductMS
+          uri: lb://ProductMS
+          predicates:
+            - Path=/Ekart/product-api/**
+        

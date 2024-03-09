@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<app-not-found [visible]="!guest"
+notFoundMessage="Login First!"
+resetLinkText="Login"
+resetLinkRoute="/login"></app-not-found>
+
+<div class="gap" *ngIf="guest">
+    <table border:1>
+        <tr >
+            <th> Notification order Id</th>
+            <th> Notification Text </th>
+        </tr>
+       
+        <tr class="line" >
+            <td> OrderPlaced_sai@abcd.com149623568 </td>
+            <td> Order was Placed Succesfully. Your Id is:sai@abcd.com149623568 </td>
+            <td><button class="butprop">Mark As Read</button></td>
+        </tr>
+        <tr class="line">
+            <td> Cancelled_sai@abcd.com149623568</td>
+            <td> Order was cancelled succesfully for your order Id:sai@abcd.com149623568 </td>
+            <td><button class="butprop">Mark As Read</button></td>
+        </tr>
+        
+    </table>
+
+</div>

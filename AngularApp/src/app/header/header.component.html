@@ -1,0 +1,37 @@
+<html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+<nav class="new-nav-class navbar navbar-default" >
+    <div class="new-nav-class container-fluid">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand"> <img src="assets/images/ekart_logo4.jpg" alt="EKART" class="img-class"> </a>
+            
+        </div>
+        <div class="search-container">
+            <input class="search-input" type="text" placeholder="Search Product" [(ngModel)]="searchTerm" (change)="search()">
+            <button class="search-button" (click)="search()"><i class="fa fa-search"></i></button>
+            </div>
+        <div class="collapse navbar-collapse" *ngIf="isGuest()">
+            <ul class="new-navbar-margin nav navbar-nav">
+                <li><a routerLink=""><i class="fa fa-fw fa-home"></i>Home</a></li>
+                <li><a routerLink="/login"><i class="fa fa-fw fa-sign-in"></i>Login</a></li>
+                <li><a routerLink="/signup"><i class="fa fa-fw fa-user-plus"></i>Signup</a></li>
+                <li><a routerLink="/cart"><i class="fa fa-fw fa-shopping-cart" style="font-size:20px"></i><span class='badge badge-warning' id='lblCartCount'>{{cartCount}}</span>Cart</a></li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse" *ngIf="!isGuest()">
+            <ul class="new-navbar-margin nav navbar-nav">
+                <li><a routerLink=""><i class="fa fa-fw fa-home"></i>Home</a></li>
+                <li><a routerLink="/profile"><i class="fa fa-fw fa-user"></i>Profile</a></li>
+                <li><a routerLink="/my-orders"><i class="fa fa-fw fa-align-justify"></i>My Orders</a></li>
+                <li><a routerLink="/wishlist"><i class="fa fa-fw fa-heart"></i>Wishlist</a></li>
+                <li><a routerLink="/notification"><i class="fa fa-fw fa-bell"></i>Notification</a></li>
+                <li><a routerLink="/login" (click)="logoutButton()"><i class="fa fa-fw fa-sign-in-alt"></i>Logout</a></li>
+                <li><a routerLink="/cart"><i class="fa fa-fw fa-shopping-cart" style="font-size:20px"></i><span class='badge badge-warning' id='lblCartCount'>{{cartCount}}</span>Cart</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+</body>
+</html>
